@@ -1,0 +1,249 @@
+{
+  "activity": {
+    "com.alibaba.android.user.login.SignUpWithPwdActivity": {
+      "activityName": "登陆页面",
+      "xpathLites": [
+        {
+          "type": "input",
+          "name": "//*[@resource-id=\"cn.xuexi.android:id/et_phone_input\"]",
+          "value": "",
+          "remark": "输入手机号",
+          "waitTime": 1000
+        },
+        {
+          "type": "input",
+          "name": "//*[@resource-id=\"cn.xuexi.android:id/et_pwd_login\"]",
+          "value": "",
+          "remark": "输入密码",
+          "waitTime": 2000
+        },
+        {
+          "type": "click",
+          "name": "//*[@resource-id=\"cn.xuexi.android:id/btn_next\"]",
+          "value": null,
+          "remark": "点击登陆按钮",
+          "waitTime": 2000
+        }
+      ],
+      "waitTime": 3000
+    },
+    "com.alibaba.android.rimet.biz.home.activity.HomeActivity": {
+      "activityName": "首页",
+      "xpathLites": [
+        {
+          "type": "tab",
+          "name": "//*[@text=\"浙江\"]",
+          "value": "{\"comment\":false,\"share\":true}",
+          "remark": "浙江",
+          "method": "script:shareArticle,script:openLocalChannel,openArticle,watchVideo",
+          "waitTime": 2000
+        }
+      ],
+      "waitTime": 3000
+    },
+    "com.alibaba.android.uc.base.navi.window2.Window2Activity": {
+      "activityName": "文章详情页|视频详情页",
+      "article": [
+        {
+          "type": "adb",
+          "name": "shell input swipe 500 1940 500 1260 500",
+          "value": 10,
+          "remark": "滑动app",
+          "waitTime": 2000
+        },
+        {
+          "type": "adb",
+          "name": "shell input keyevent 4",
+          "value": 1,
+          "remark": "点击返回按钮",
+          "waitTime": 1000
+        }
+      ],
+      "video": [
+        {
+          "type": "waitDisplayed",
+          "name": "//*[@text=\"重新播放\"]",
+          "value": 1,
+          "remark": "等待视频播放完毕（超时时间5分钟）",
+          "waitTime": 6000
+        },
+        {
+          "type": "adb",
+          "name": "shell input keyevent 4",
+          "value": 1,
+          "remark": "点击返回按钮",
+          "waitTime": 1000
+        }
+      ],
+      "waitTime": 3000
+    }
+  },
+  "method": {
+    "openArticle": {
+      "location": "article",
+      "labelXpathLite": "//*[@resource-id=\"cn.xuexi.android:id/home_bottom_tab_button_work\"]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]",
+      "xpathLite": "//android.widget.ListView/android.widget.FrameLayout[{0}]",
+      "begin": 2,
+      "end": 5,
+      "waitTime": 1000,
+      "nextMethod": "script:slideArticleList",
+      "frequency": 4
+    },
+    "watchVideo": {
+      "location": "video",
+      "labelXpathLite": "//*[@resource-id=\"cn.xuexi.android:id/home_bottom_tab_button_contact\"]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]",
+      "xpathLite": "//android.widget.ListView/android.widget.FrameLayout[{0}]",
+      "begin": 1,
+      "end": 3,
+      "waitTime": 1000,
+      "nextMethod": "script:slideVideoList",
+      "frequency": 6
+    },
+    "script": {
+      "shareArticle": {
+        "xpathLites": [
+          {
+            "type": "click",
+            "name": "//*[@resource-id=\"cn.xuexi.android:id/home_bottom_tab_button_work\"]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]",
+            "value": 1,
+            "remark": "点击文章标签",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//android.widget.ListView/android.widget.FrameLayout[2]",
+            "value": 1,
+            "remark": "点击第一个文章",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//*[@resource-id=\"cn.xuexi.android:id/TOP_LAYER_VIEW_ID\"]/android.widget.ImageView[2]",
+            "value": 1,
+            "remark": "点击更多",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//android.widget.GridView/android.widget.RelativeLayout[1]/android.widget.ImageView[1]",
+            "value": 1,
+            "remark": "点击分享到学习强国",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//*[@resource-id=\"cn.xuexi.android:id/session_item\"]",
+            "value": 1,
+            "remark": "点击分享给第一个好友",
+            "waitTime": 1000
+          },
+          {
+            "type": "adb",
+            "name": "shell input tap 800 1362",
+            "value": 1,
+            "remark": "点击确认分享",
+            "waitTime": 1000
+          },
+          {
+            "type": "adb",
+            "name": "shell input keyevent 4",
+            "value": 1,
+            "remark": "点击返回按钮",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//android.widget.ListView/android.widget.FrameLayout[3]",
+            "value": 1,
+            "remark": "点击第二个文章",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//*[@resource-id=\"cn.xuexi.android:id/TOP_LAYER_VIEW_ID\"]/android.widget.ImageView[2]",
+            "value": 1,
+            "remark": "点击更多",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//android.widget.GridView/android.widget.RelativeLayout[1]/android.widget.ImageView[1]",
+            "value": 1,
+            "remark": "点击分享到学习强国",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//*[@resource-id=\"cn.xuexi.android:id/session_item\"]",
+            "value": 1,
+            "remark": "点击分享给第一个好友",
+            "waitTime": 1000
+          },
+          {
+            "type": "adb",
+            "name": "shell input tap 810 1345",
+            "value": 1,
+            "remark": "点击确认分享",
+            "waitTime": 1000
+          },
+          {
+            "type": "adb",
+            "name": "shell input keyevent 4",
+            "value": 1,
+            "remark": "点击返回按钮",
+            "waitTime": 1000
+          }
+        ],
+        "begin": 2,
+        "end": 3
+      },
+      "slideArticleList": {
+        "xpathLites": [
+          {
+            "type": "adb",
+            "name": "shell input swipe 500 1874 500 260 1500",
+            "value": 1,
+            "remark": "滑动文章列表",
+            "waitTime": 1000
+          }
+        ]
+      },
+      "slideVideoList": {
+        "xpathLites": [
+          {
+            "type": "adb",
+            "name": "shell input swipe 620 1874 600 270 1500",
+            "value": 1,
+            "remark": "滑动视频列表",
+            "waitTime": 1000
+          }
+        ]
+      },
+      "openLocalChannel": {
+        "xpathLites": [
+          {
+            "type": "click",
+            "name": "//*[@resource-id=\"cn.xuexi.android:id/home_bottom_tab_button_work\"]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]",
+            "value": 1,
+            "remark": "点击文章标签",
+            "waitTime": 1000
+          },
+          {
+            "type": "click",
+            "name": "//android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.ImageView[1]",
+            "value": 1,
+            "remark": "滑动文章列表",
+            "waitTime": 1000
+          },
+          {
+            "type": "adb",
+            "name": "shell input keyevent 4",
+            "value": 1,
+            "remark": "点击返回按钮",
+            "waitTime": 1000
+          }
+        ]
+      }
+    }
+  }
+}

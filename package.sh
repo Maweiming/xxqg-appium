@@ -1,0 +1,1 @@
+mvn clean package -Pbeta -Dmaven.test.skip=true
