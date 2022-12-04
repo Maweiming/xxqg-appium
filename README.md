@@ -1,5 +1,5 @@
 # xxqg-appium
-通过Appium实现学习强国自动脚本，执行命令可通过setting.json配置，setting.json配置文件只支持MI8手机。
+通过Appium+adb命令实现学习强国自动脚本，执行命令可通过setting.json配置，setting.json配置文件只支持MI8手机。
 
 脚本是两年前帮女朋友写的，现在已经分手了。现在可能ui信息有变化。可以分析一下页面ui，替换一下元素信息。
 
